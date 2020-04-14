@@ -35,4 +35,7 @@ solution*
 *.app
 demo
 test
+
+#vscode
 .vscode
+settings.json
