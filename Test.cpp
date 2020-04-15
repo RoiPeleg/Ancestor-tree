@@ -95,4 +95,60 @@ TEST_CASE("Test realtion")
 }
 TEST_CASE("Test find")
 {
+    T2.addFather("Noa", "Shai")
+        .addMother("Noa", "Shani")
+        .addFather("Shai", "Pinchas")
+        .addMother("Shai", "Riki")
+        .addFather("Shani", "Silvan")
+        .addMother("Shani", "Rachel")
+        .addFather("Pinchas", "Avraham")
+        .addMother("Pinchas", "Sara")
+        .addFather("Riki", "Yakov")
+        .addMother("Riki", "Lea")
+        .addFather("Silvan", "Meni")
+        .addMother("Silvan", "Hadas")
+        .addFather("Rachel", "Almog")
+        .addMother("Rachel", "Ariel")
+        .addFather("Avraham", "Yosef")
+        .addMother("Avraham", "Shontal")
+        .addFather("Shontal", "Haim")
+        .addMother("Shontal", "Sheli")
+    
+    CHECK(T.find("father")=="Shai");
+    CHECK(T.find("mother")=="Shani");
+    CHECK(T.find("grandfather")=="Pinchas");
+    CHECK(T.find("grandfather")=="Silvan");
+    CHECK(T.find("grandmother")=="Riki");
+    CHECK(T.find("grandmother")=="Rachel");
+    CHECK(T.find("great-grandfather")=="Avraham");
+    CHECK(T.find("great-grandfather")=="Meni");
+    CHECK(T.find("great-grandfather")=="Yakov");
+    CHECK(T.find("great-grandfather")=="Almog");
+    CHECK(T.find("great-grandmother")=="Sara");
+    CHECK(T.find("great-grandmother")=="Lea");
+    CHECK(T.find("great-grandmother")=="Hadas");
+    CHECK(T.find("great-grandmother")=="Ariel");
+    CHECK(T.find("great-great-grandfather")=="Yosef");
+    CHECK(T.find("great-great-grandmother")=="Shontal");
+    CHECK(T.find("great-great-great-grandfather")=="Haim");
+    CHECK(T.find("great-great-great-grandmother")=="Sheli");
+
+    CHECK(T.find("father")=="Pinchas");
+    CHECK(T.find("mother")=="Rachel");
+    CHECK(T.find("grandfather")=="Avraham");
+    CHECK(T.find("grandfather")=="Meni");
+    CHECK(T.find("grandmother")=="Lea");
+    CHECK(T.find("grandmother")=="Ariel");
+    CHECK(T.find("great-grandfather")=="Yosef");
+    CHECK(T.find("great-grandfather")=="Silvan");
+    CHECK(T.find("great-grandfather")=="Shai");
+    CHECK(T.find("great-grandfather")=="Dvir");
+    CHECK(T.find("great-grandmother")=="Riki");
+    CHECK(T.find("great-grandmother")=="Rivka");
+    CHECK(T.find("great-grandmother")=="Shontal");
+    CHECK(T.find("great-grandmother")=="Shani");
+    CHECK(T.find("great-great-grandfather")=="Haim");
+    CHECK(T.find("great-great-grandmother")=="Noa");
+    CHECK(T.find("great-great-great-grandfather")=="Beni");
+    CHECK(T.find("great-great-great-grandmother")=="Hadas");
 }
