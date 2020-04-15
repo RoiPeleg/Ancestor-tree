@@ -197,4 +197,14 @@ TEST_CASE("Test find")
     CHECK(T2.find("father")=="Kobi");
     CHECK(T2.find("father")=="Natan");
     CHECK(T2.find("father")=="Geri");
+
+    bool b = false;
+    checkExp(T, find("great-great-great-great-grandmother", "aaa"), b)
+        CHECK(b == true);
+    b = false;
+    checkExp(T, find("great-great-great-great-grandfather", "aaa"), b)
+        CHECK(b == true);
+    b = false;
+    checkExp(T, find("great-grandfather", "Rivka"), b)
+        CHECK(b==true);
 }
