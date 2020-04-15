@@ -199,12 +199,12 @@ TEST_CASE("Test find")
     CHECK(T2.find("father")=="Geri");
 
     bool b = false;
-    checkExp(T2, find("great-great-great-great-grandmother", "aaa"), b)
+    checkExp(T2, find("great-great-great-great-grandmother"), b)
         CHECK(b == true);
     b = false;
-    checkExp(T2, find("great-great-great-great-grandfather", "aaa"), b)
+    checkExp(T2, find("great-great-great-great-grandfather"), b)
         CHECK(b == true);
     b = false;
-    checkExp(T2, find("great-grandfather", "Rivka"), b)
+    checkExp(T2, find("great-grandfather"), b)
         CHECK(b==true);
 }
