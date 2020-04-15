@@ -60,8 +60,8 @@ TEST_CASE("Test add")
     checkExp(T, addMother("Rivka", "r2"), b)
         CHECK(b == true);
     b = false;
-    checkExp(T, addMother("m1", "r2"), b)
-        CHECK(b != true);
+    checkExp(T, addMother("m", "r2"), b)
+        CHECK(b == true);
 }
 TEST_CASE("Test remove")
 {
@@ -77,14 +77,16 @@ TEST_CASE("Test remove")
     bool b = false;
     checkExp(T, remove("Yosef"), b)
         CHECK(b == true);
-    b = false;
+        b = false;
     checkExp(T, remove("Yaakov"), b)
         CHECK(b == true);
-    b = false;
+        b = false;
     checkExp(T, remove("m1"), b)
         CHECK(b == true);
+        b = false;
     checkExp(T, remove("Issac"), b)
         CHECK(b == true);
+        b = false;
     checkExp(T, remove("yossi"), b)
         CHECK(b == true);
 }
