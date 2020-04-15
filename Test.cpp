@@ -93,9 +93,6 @@ TEST_CASE("Test remove")
 }
 TEST_CASE("Test realtion")
 {
-}
-TEST_CASE("Test find")
-{
     T2.addFather("Noa", "Shai")
         .addMother("Noa", "Shani")
         .addFather("Shai", "Pinchas")
@@ -113,8 +110,50 @@ TEST_CASE("Test find")
         .addFather("Avraham", "Yosef")
         .addMother("Avraham", "Shontal")
         .addFather("Shontal", "Haim")
-        .addMother("Shontal", "Sheli")
-    
+        .addMother("Shontal", "Sheli");
+
+    CHECK(T2.find("Shai")=="father");
+    CHECK(T2.find("Shani")=="mother");
+    CHECK(T2.find("Pinchas")=="grandfather");
+    CHECK(T2.find("Silvan")=="grandfather");
+    CHECK(T2.find("Riki")=="grandmother");
+    CHECK(T2.find("Rachel")=="grandmother");
+    CHECK(T2.find("Avraham")=="great-grandfather");
+    CHECK(T2.find("Meni")=="great-grandfather");
+    CHECK(T2.find("Yakov")=="great-grandfather");
+    CHECK(T2.find("Almog")=="great-grandfather");
+    CHECK(T2.find("Sara")=="great-grandmother");
+    CHECK(T2.find("Lea")=="great-grandmother");
+    CHECK(T2.find("Hadas")=="great-grandmother");
+    CHECK(T2.find("Ariel")=="great-grandmother");
+    CHECK(T2.find("Yosef")=="great-great-grandfather");
+    CHECK(T2.find("Shontal")=="great-great-grandmother");
+    CHECK(T2.find("Haim")=="great-great-great-grandfather");
+    CHECK(T2.find("Sheli")=="great-great-great-grandmother");
+    CHECK(T2.find("Beni")=="unrelated");
+
+    CHECK(T2.find("Pinchas")=="father");
+    CHECK(T2.find("Rachel")=="mother");
+    CHECK(T2.find("Avraham")=="grandfather");
+    CHECK(T2.find("Meni")=="grandfather");
+    CHECK(T2.find("Lea")=="grandmother");
+    CHECK(T2.find("Ariel")=="grandmother");
+    CHECK(T2.find("Yosef")=="great-grandfather");
+    CHECK(T2.find("Silvan")=="great-grandfather");
+    CHECK(T2.find("Shai")=="great-grandfather");
+    CHECK(T2.find("Dvir")=="great-grandfather");
+    CHECK(T2.find("Riki")=="great-grandmother");
+    CHECK(T2.find("Rivka")=="great-grandmother");
+    CHECK(T2.find("Shontal")=="great-grandmother");
+    CHECK(T2.find("Shani")=="great-grandmother");
+    CHECK(T2.find("Haim")=="great-great-grandfather");
+    CHECK(T2.find("Noa")=="great-great-grandmother");
+    CHECK(T2.find("Beni")=="great-great-great-grandfather");
+    CHECK(T2.find("Hadas")=="great-great-great-grandmother");
+    CHECK(T2.find("Shani")=="unrelated");
+}
+TEST_CASE("Test find")
+{   
     CHECK(T2.find("father")=="Shai");
     CHECK(T2.find("mother")=="Shani");
     CHECK(T2.find("grandfather")=="Pinchas");
