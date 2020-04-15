@@ -8,9 +8,9 @@ using namespace family;
 #include <string>
 
 // a macro to simply check exception b must be init to FALSE!
-#define expc(T,f,str, b){\
+#define expc(T,f, b){\
       try{\
-        T.f(str);\
+        T.f;\
     }catch(exception& e){\
         b = true;\
     }\
@@ -37,6 +37,10 @@ TEST_CASE("Test add")
     CHECK(T.find("great-great-grandfather")=="Terah");
     CHECK(T.find("great-grandmother")=="m");
     CHECK(T.find("great-great-grandmother")=="m1");
+
+    bool b =false;
+    expc(T,addFather("yakov","ff"),b)
+    CHECK(b==true);
 }
 TEST_CASE("Test remove")
 {
@@ -50,7 +54,13 @@ TEST_CASE("Test remove")
     CHECK(T.relation("Terah")=="unrealted");
     CHECK(T.relation("Avraham")=="unrealted");
     bool b = false;
-    expc(T,remove,"Yosef",b)
+    expc(T,remove("Yosef"),b)
+    CHECK(b==true);
+    b = false;
+    expc(T,remove("Yaakov"),b)
+    CHECK(b==true);
+    b = false;
+    expc(T,remove("m1"),b)
     CHECK(b==true);
 }
 TEST_CASE("Test realtion")
