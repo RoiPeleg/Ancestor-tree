@@ -32,6 +32,7 @@ using namespace family;
     }
 using namespace std;
 Tree T("Yosef");
+Tree T2("Noa");
 TEST_CASE("Test add")
 {
     T.addFather("Yosef", "Yaakov")
@@ -114,41 +115,41 @@ TEST_CASE("Test find")
         .addFather("Shontal", "Haim")
         .addMother("Shontal", "Sheli")
     
-    CHECK(T.find("father")=="Shai");
-    CHECK(T.find("mother")=="Shani");
-    CHECK(T.find("grandfather")=="Pinchas");
-    CHECK(T.find("grandfather")=="Silvan");
-    CHECK(T.find("grandmother")=="Riki");
-    CHECK(T.find("grandmother")=="Rachel");
-    CHECK(T.find("great-grandfather")=="Avraham");
-    CHECK(T.find("great-grandfather")=="Meni");
-    CHECK(T.find("great-grandfather")=="Yakov");
-    CHECK(T.find("great-grandfather")=="Almog");
-    CHECK(T.find("great-grandmother")=="Sara");
-    CHECK(T.find("great-grandmother")=="Lea");
-    CHECK(T.find("great-grandmother")=="Hadas");
-    CHECK(T.find("great-grandmother")=="Ariel");
-    CHECK(T.find("great-great-grandfather")=="Yosef");
-    CHECK(T.find("great-great-grandmother")=="Shontal");
-    CHECK(T.find("great-great-great-grandfather")=="Haim");
-    CHECK(T.find("great-great-great-grandmother")=="Sheli");
+    CHECK(T2.find("father")=="Shai");
+    CHECK(T2.find("mother")=="Shani");
+    CHECK(T2.find("grandfather")=="Pinchas");
+    CHECK(T2.find("grandfather")=="Silvan");
+    CHECK(T2.find("grandmother")=="Riki");
+    CHECK(T2.find("grandmother")=="Rachel");
+    CHECK(T2.find("great-grandfather")=="Avraham");
+    CHECK(T2.find("great-grandfather")=="Meni");
+    CHECK(T2.find("great-grandfather")=="Yakov");
+    CHECK(T2.find("great-grandfather")=="Almog");
+    CHECK(T2.find("great-grandmother")=="Sara");
+    CHECK(T2.find("great-grandmother")=="Lea");
+    CHECK(T2.find("great-grandmother")=="Hadas");
+    CHECK(T2.find("great-grandmother")=="Ariel");
+    CHECK(T2.find("great-great-grandfather")=="Yosef");
+    CHECK(T2.find("great-great-grandmother")=="Shontal");
+    CHECK(T2.find("great-great-great-grandfather")=="Haim");
+    CHECK(T2.find("great-great-great-grandmother")=="Sheli");
 
-    CHECK(T.find("father")=="Pinchas");
-    CHECK(T.find("mother")=="Rachel");
-    CHECK(T.find("grandfather")=="Avraham");
-    CHECK(T.find("grandfather")=="Meni");
-    CHECK(T.find("grandmother")=="Lea");
-    CHECK(T.find("grandmother")=="Ariel");
-    CHECK(T.find("great-grandfather")=="Yosef");
-    CHECK(T.find("great-grandfather")=="Silvan");
-    CHECK(T.find("great-grandfather")=="Shai");
-    CHECK(T.find("great-grandfather")=="Dvir");
-    CHECK(T.find("great-grandmother")=="Riki");
-    CHECK(T.find("great-grandmother")=="Rivka");
-    CHECK(T.find("great-grandmother")=="Shontal");
-    CHECK(T.find("great-grandmother")=="Shani");
-    CHECK(T.find("great-great-grandfather")=="Haim");
-    CHECK(T.find("great-great-grandmother")=="Noa");
-    CHECK(T.find("great-great-great-grandfather")=="Beni");
-    CHECK(T.find("great-great-great-grandmother")=="Hadas");
+    CHECK(T2.find("father")=="Pinchas");
+    CHECK(T2.find("mother")=="Rachel");
+    CHECK(T2.find("grandfather")=="Avraham");
+    CHECK(T2.find("grandfather")=="Meni");
+    CHECK(T2.find("grandmother")=="Lea");
+    CHECK(T2.find("grandmother")=="Ariel");
+    CHECK(T2.find("great-grandfather")=="Yosef");
+    CHECK(T2.find("great-grandfather")=="Silvan");
+    CHECK(T2.find("great-grandfather")=="Shai");
+    CHECK(T2.find("great-grandfather")=="Dvir");
+    CHECK(T2.find("great-grandmother")=="Riki");
+    CHECK(T2.find("great-grandmother")=="Rivka");
+    CHECK(T2.find("great-grandmother")=="Shontal");
+    CHECK(T2.find("great-grandmother")=="Shani");
+    CHECK(T2.find("great-great-grandfather")=="Haim");
+    CHECK(T2.find("great-great-grandmother")=="Noa");
+    CHECK(T2.find("great-great-great-grandfather")=="Beni");
+    CHECK(T2.find("great-great-great-grandmother")=="Hadas");
 }
