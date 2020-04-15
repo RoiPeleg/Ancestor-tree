@@ -191,4 +191,10 @@ TEST_CASE("Test find")
     CHECK(T2.find("great-great-grandmother")=="Noa");
     CHECK(T2.find("great-great-great-grandfather")=="Beni");
     CHECK(T2.find("great-great-great-grandmother")=="Hadas");
+
+    CHECK(T2.find("father")=="Oded");
+    CHECK(T2.find("father")=="Ilan");
+    CHECK(T2.find("father")=="Kobi");
+    CHECK(T2.find("father")=="Natan");
+    CHECK(T2.find("father")=="Geri");
 }
