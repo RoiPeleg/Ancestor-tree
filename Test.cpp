@@ -6,6 +6,15 @@
 #include "FamilyTree.hpp"
 using namespace family;
 #include <string>
+
+// a macro to simply check exception b must be init to FALSE!
+#define expc(T,f,str, b){\
+      try{\
+        T.f(str);\
+    }catch(exception& e){\
+        b = true;\
+    }\
+}
 using namespace std;
 Tree T("Yosef");   
 TEST_CASE("Test add")
@@ -40,6 +49,9 @@ TEST_CASE("Test remove")
     CHECK(T.relation("Issac")=="unrealted");
     CHECK(T.relation("Terah")=="unrealted");
     CHECK(T.relation("Avraham")=="unrealted");
+    bool b = false;
+    expc(T,remove,"Yosef",b)
+    CHECK(b==true);
 }
 TEST_CASE("Test realtion")
 {
