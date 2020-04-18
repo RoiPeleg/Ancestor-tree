@@ -113,7 +113,7 @@ TEST_CASE("Test find")
         .addFather("Avraham", "Yosef")
         .addMother("Avraham", "Shontal")
         .addFather("Shontal", "Haim")
-        .addMother("Shontal", "Sheli")
+        .addMother("Shontal", "Sheli");
     
     CHECK(T2.find("father")=="Shai");
     CHECK(T2.find("mother")=="Shani");
