@@ -5,8 +5,10 @@ namespace family
 {
 Tree::Tree(string)
 {
-    this->tree[128]; //defualt to 7 generations 2^7 each generation is twice the size of the last generation
-    for(size_t i = 0; i < tree->length;i++){
+    string s[128-1]; //defualt to 7 generations 2^7 each generation is twice the size of the last generation
+    tree = s;
+    length = 127;
+    for(size_t i = 0; i < length;i++){
         tree[i] = "";
     }
     this->size_gen = 0;
@@ -16,22 +18,24 @@ int Tree::getInd(string child)
 {
     bool found = false;
     size_t index = -1;
-    for (size_t i = 0; i < tree->length && !found; i++)
+    for (size_t i = 0; i < length && !found; i++)
     {
+        printf(tree[0].c_str());
         if (!tree[i].compare(child))
         {
             found = true;
             index = i;
         }
     }
-    if (index > tree->length)
-        resize(4);
+
     return index;
 }
 Tree Tree::addFather(string child, string father)
 {
     //i*2+1 father
+    printf("sss");
     size_t index = getInd(child);
+    printf("sss2");
     tree[index * 2 + 1] = father;
     return *this;
 }
@@ -45,7 +49,7 @@ Tree Tree::addMother(string child, string mother)
 string Tree::relation(string name)
 {
     int i;
-    for (i = 0; i < tree->length; i++)
+    for (i = 0; i < length; i++)
     {
         if (name.compare(tree[i]))
         {
@@ -115,9 +119,9 @@ string Tree::find(string relate)
     throw runtime_error("didn't find someone with that relation in the tree");
 }
 void recremove(int ind , string* t){//auxaillry
-    if(2*ind+1 < t->length && t[2*ind+1].compare(""))
+    if(2*ind+1 < t->length() && t[2*ind+1].compare(""))
     recremove(2*ind+1, t);
-    if(2*ind+2 < t->length && t[2*ind+2].compare(""))
+    if(2*ind+2 < t->length() && t[2*ind+2].compare(""))
     recremove(2*ind+2, t);
 }
 void Tree::remove(string toremove)
@@ -127,17 +131,17 @@ void Tree::remove(string toremove)
         throw runtime_error("can't delete root");
     else if(ind!=-1)
         throw runtime_error("does not exist in the tree");
-    if(2*ind+1 < tree->length && tree[2*ind+1].compare(""))
+    if(2*ind+1 < length && tree[2*ind+1].compare(""))
     recremove(2*ind+1, tree);
-    if(2*ind+1 < tree->length &&tree[2*ind+2].compare(""))
+    if(2*ind+1 < length &&tree[2*ind+2].compare(""))
     recremove(2*ind+2, tree);
 }
 void recdisplay(int ind , string* t){//auxaillry
-    if(2*ind+1 < t->length && t[2*ind+1].compare("")){
+    if(2*ind+1 < t->length() && t[2*ind+1].compare("")){
     printf(t[2*ind+1].c_str());
     recdisplay(2*ind+1, t);
     }
-    if(2*ind+2 < t->length && t[2*ind+2].compare("")){
+    if(2*ind+2 < t->length() && t[2*ind+2].compare("")){
     printf(t[2*ind+2].c_str());
     recdisplay(2*ind+2, t);
     }
@@ -157,7 +161,8 @@ void Tree::resize(int x)
 {
     this->max_gen = this->max_gen + x;
     string newtree[(int)pow(2, (this->max_gen + x)) - 1];
-    for (size_t i = 0; i < tree->length; i++)
+    length = (int)pow(2, (this->max_gen + x)) - 1;
+    for (size_t i = 0; i < length; i++)
     {
         newtree[i] = tree[i];
     }
