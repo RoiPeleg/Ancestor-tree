@@ -5,10 +5,11 @@ namespace family{
 
 class Tree{
     private:
-    size_t size_gen;//actual capcity for the number of genarations that can be stored array
-    string tree[];
-    int getmother(string);//returns the location of the mother of given person
-    int getfather(string);// '' asme for father
+    size_t size_gen;//the number of genarations that are stored array
+    size_t max_gen;//the max number of genarations that can be stored array
+    string *tree;
+    void resize(int);//add x generations
+    int getInd(string);//returns index of given person
     public:
     Tree(string);
     Tree addFather(string ,string);

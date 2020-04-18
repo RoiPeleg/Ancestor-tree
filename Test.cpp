@@ -1,6 +1,6 @@
 /**
  * unit test to FamilyTree
- * AUTHOR: RoiPeleg
+ * AUTHORs: RoiPeleg and TalAbed
  * */
 #include "doctest.h"
 #include "FamilyTree.hpp"
