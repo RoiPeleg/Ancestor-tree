@@ -2,7 +2,7 @@
 using namespace std;
 namespace family{
    Tree::Tree(string){
-       string t[100] ;
+       string t[100];
        
     }
     Tree Tree::addFather(string ,string){
