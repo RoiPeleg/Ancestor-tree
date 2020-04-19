@@ -185,6 +185,7 @@ TEST_CASE("Test 2 remove"){
      .addMother("Loren", "Calanit").addFather("Loren", "Moky")
      .addFather("Omer", "Nadav");
 
+    
     CHECK_THROWS(T.remove("Omri")); //try to remove the root --> exception
 
     CHECK((T.find("grandfather") == string("Nadav") || T.find("grandfather") == string("Loren")));
