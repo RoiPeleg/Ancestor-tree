@@ -3,12 +3,13 @@
 using namespace std;
 namespace family
 {
-Tree::Tree(string)
+Tree::Tree(string root)
 {
     string s[128-1]; //defualt to 7 generations 2^7 each generation is twice the size of the last generation
     tree = s;
+    tree[0] = root;
     length = 127;
-    for(size_t i = 0; i < length;i++){
+    for(size_t i = 1; i < length;i++){
         tree[i] = "";
     }
     this->size_gen = 0;
@@ -20,7 +21,7 @@ int Tree::getInd(string child)
     size_t index = -1;
     for (size_t i = 0; i < length && !found; i++)
     {
-        printf(tree[0].c_str());
+        
         if (!tree[i].compare(child))
         {
             found = true;
@@ -33,9 +34,11 @@ int Tree::getInd(string child)
 Tree Tree::addFather(string child, string father)
 {
     //i*2+1 father
-    printf("sss");
     size_t index = getInd(child);
-    printf("sss2");
+    if(index * 2 + 1 > length)resize(4);
+    if(tree[index * 2 + 1]!= ""){
+        throw runtime_error("already has a father");
+    }
     tree[index * 2 + 1] = father;
     return *this;
 }
@@ -43,7 +46,18 @@ Tree Tree::addMother(string child, string mother)
 {
     //i*2+2 mother
     size_t index = getInd(child);
+   
+    if(index * 2 + 2 > length)resize(4);
+
+     if(tree[index * 2 + 2]!= ""){
+        throw runtime_error("already has a mother");
+    }
+    printf("ssss");
     tree[index * 2 + 2] = mother;
+    printf(child.c_str());
+    printf("\n");
+     printf(tree[2*index+2].c_str());
+      printf("\n");
     return *this;
 }
 string Tree::relation(string name)
@@ -51,7 +65,7 @@ string Tree::relation(string name)
     int i;
     for (i = 0; i < length; i++)
     {
-        if (name.compare(tree[i]))
+        if (name.compare(tree[i])==0)
         {
             if (i == 0)
                 return "me";
